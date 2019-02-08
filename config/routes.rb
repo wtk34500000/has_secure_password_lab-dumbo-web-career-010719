@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :users, only: [:new, :create]
+
+  get '/sessions/new', to: "sessions#new", as: 'new_session'
+  post '/sessions', to: "sessions#create"
+
+  get '/welcome', to: "welcome#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
